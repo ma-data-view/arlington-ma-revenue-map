@@ -133,6 +133,20 @@ main {
   min-width: 200px;
 }
 
+.legend-toggle {
+  display: none;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 2;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+}
+
 .legend-header {
   display: flex;
   align-items: center;
@@ -394,12 +408,21 @@ main {
   }
 
   .legend {
+    display: none;
     top: auto;
     bottom: 0.75rem;
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 2rem);
     max-width: 380px;
+  }
+
+  .legend.mobile-visible {
+    display: block;
+  }
+
+  .legend-toggle {
+    display: inline-flex;
   }
 
   .top-actions {

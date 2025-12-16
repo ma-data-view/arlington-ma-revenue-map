@@ -24,6 +24,8 @@
   const clearSearchBtn = document.getElementById("clear-search");
   const detailsToggle = document.getElementById("details-toggle");
   const detailsContainer = document.getElementById("details-content");
+  const legendToggle = document.getElementById("legend-toggle");
+  const legendEl = document.getElementById("legend");
 
   let colorStops = [];
   let searchMarker = null;
@@ -100,7 +102,6 @@
   }
 
   function renderLegend(deciles) {
-    const legendEl = document.getElementById("legend");
     legendEl.innerHTML = `
       <div class="legend-header">
         <div>
@@ -155,6 +156,16 @@
     exempt.className = "legend-item";
     exempt.innerHTML = `<span class="legend-swatch" style="background:#111827"></span><span>Tax-exempt (zeroed)</span>`;
     legendEl.appendChild(exempt);
+
+    if (legendToggle) {
+      if (window.innerWidth <= 960) {
+        legendEl.classList.remove("mobile-visible");
+        legendToggle.textContent = "Show legend";
+      } else {
+        legendEl.classList.add("mobile-visible");
+        legendToggle.textContent = "";
+      }
+    }
   }
 
   function renderDetails(props) {
@@ -381,6 +392,13 @@
       detailsToggle.onclick = () => {
         const expanded = detailsContainer.classList.toggle("expanded");
         detailsToggle.textContent = expanded ? "Hide details ⌃" : "Show details ⌄";
+      };
+    }
+
+    if (legendToggle && legendEl) {
+      legendToggle.onclick = () => {
+        const visible = legendEl.classList.toggle("mobile-visible");
+        legendToggle.textContent = visible ? "Hide legend" : "Show legend";
       };
     }
   }
