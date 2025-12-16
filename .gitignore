@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 .DS_Store
 data/raw/
+data/processed/parcels_revenue.geojson
