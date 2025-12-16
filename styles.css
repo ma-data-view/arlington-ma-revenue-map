@@ -400,21 +400,20 @@ main {
   }
 
   .map-panel {
-    height: 80vh;
+    height: 72vh;
   }
 
   #map {
-    min-height: 80vh;
+    min-height: 72vh;
   }
 
   .legend {
+    position: static;
     display: none;
-    top: auto;
-    bottom: 0.75rem;
-    left: 50%;
-    transform: translateX(-50%);
+    transform: none;
     width: calc(100% - 2rem);
-    max-width: 380px;
+    max-width: none;
+    margin: 0 1rem 0.75rem 1rem;
   }
 
   .legend.mobile-visible {
@@ -423,6 +422,8 @@ main {
 
   .legend-toggle {
     display: inline-flex;
+    position: static;
+    margin: 0.5rem 1rem 0.25rem 1rem;
   }
 
   .top-actions {
