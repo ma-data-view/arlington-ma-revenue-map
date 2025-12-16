@@ -1,0 +1,386 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap");
+
+:root {
+  --bg: #0f172a;
+  --panel: #0b1224;
+  --card: #111a2f;
+  --text: #e6edf7;
+  --muted: #8aa0c3;
+  --accent: #4dd0e1;
+  --accent-strong: #0e9aa7;
+  --border: #1e2a42;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(120% 140% at 30% 20%, #1b2b4a, #0b1224 55%),
+    var(--bg);
+  color: var(--text);
+  font-family: "Manrope", "Helvetica Neue", Arial, sans-serif;
+  min-height: 100vh;
+}
+
+h1,
+h3 {
+  margin: 0;
+  font-weight: 700;
+}
+
+p {
+  margin: 0.3rem 0 0;
+  color: var(--muted);
+}
+
+a {
+  color: var(--accent);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.top-actions {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.geocoder .mapboxgl-ctrl-geocoder {
+  min-width: 320px;
+  max-width: 360px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.geocoder .mapboxgl-ctrl-geocoder--button {
+  background: transparent;
+}
+
+.geocoder .mapboxgl-ctrl-geocoder input {
+  color: var(--text);
+}
+
+.geocoder .mapboxgl-ctrl-geocoder input::placeholder {
+  color: var(--muted);
+}
+
+.search-status {
+  min-width: 240px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding: 0.35rem 0.5rem;
+}
+
+.select-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+}
+
+select {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  min-width: 180px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0;
+  min-height: calc(100vh - 96px);
+}
+
+.map-panel {
+  position: relative;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+.legend {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background: rgba(11, 18, 36, 0.9);
+  border: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  min-width: 200px;
+}
+
+.legend-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.legend h4 {
+  margin: 0 0 0.4rem 0;
+  font-weight: 700;
+}
+
+.legend-sub {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.15rem 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.legend-swatch {
+  width: 18px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+}
+
+.hover-card {
+  position: absolute;
+  pointer-events: none;
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 0.9rem;
+  min-width: 180px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.hover-card.hidden {
+  display: none;
+}
+
+.details {
+  background: linear-gradient(180deg, #0f192f 0%, #0b1224 45%, #0b1224 100%);
+  border-left: 1px solid var(--border);
+  padding: 1.25rem;
+}
+
+.details h3 {
+  margin-bottom: 0.3rem;
+}
+
+.details-empty {
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.detail-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 0.75rem;
+  border-radius: 10px;
+}
+
+.detail-label {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 0.1rem;
+}
+
+.detail-value {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.pill {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(77, 208, 225, 0.1);
+  border: 1px solid rgba(77, 208, 225, 0.6);
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.landuse-stats {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.landuse-stats h4 {
+  margin: 0;
+}
+
+.stats-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.stats-header select {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.35rem 0.5rem;
+  border-radius: 8px;
+}
+
+.stats-figure {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.stats-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.stats-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.15rem;
+}
+
+.stats-value {
+  font-weight: 700;
+}
+
+/* Stats page */
+.stats-body {
+  background: var(--bg);
+}
+
+.stats-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.stats-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.stats-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.stats-table {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: 2fr 0.9fr 1fr 2.3fr 1fr 1fr;
+  gap: 0.5rem;
+  align-items: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem;
+}
+
+.stats-row__lu {
+  font-weight: 700;
+}
+
+.stats-row__count,
+.stats-row__med,
+.stats-row__p10,
+.stats-row__p90 {
+  color: var(--muted);
+}
+
+.stats-row__spark svg {
+  width: 100%;
+  height: 32px;
+}
+
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.button-link:hover {
+  border-color: var(--accent);
+}
+
+@media (max-width: 960px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    flex-direction: column;
+  }
+
+  .top-actions {
+    flex-wrap: wrap;
+  }
+
+  .details {
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+}

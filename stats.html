@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Revenue per Acre – Land Use Stats</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="stats-body">
+    <header class="topbar">
+      <div>
+        <h1>Land Use Stats — Revenue per Acre</h1>
+        <p>
+          Compare revenue per acre by land use. Medians, deciles, and mini
+          box-plots are computed from the published parcel dataset.
+        </p>
+      </div>
+      <div class="top-actions">
+        <a class="button-link" href="index.html">← Back to map</a>
+      </div>
+    </header>
+    <main class="stats-page">
+      <section class="stats-panel">
+        <div class="stats-summary">
+          <div>
+            <div class="eyebrow">Dataset</div>
+            <div id="stats-count">Loading…</div>
+          </div>
+          <div class="eyebrow">P10 / Median / P90 shown</div>
+        </div>
+        <div class="legend-sub stats-legend">Box plot: whiskers = P10/P90, box = P25–P75, green line = median.</div>
+        <div id="stats-table" class="stats-table"></div>
+      </section>
+    </main>
+    <script src="config.js"></script>
+    <script src="stats.js"></script>
+  </body>
+</html>

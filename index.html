@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arlington, MA – Revenue Per Acre</title>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.3/mapbox-gl-geocoder.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Revenue Per Acre — Arlington, MA</h1>
+        <p>
+          Parcel-level revenue density using assessor values and the town tax
+          rate. Click a parcel for details; filter by land use or search for an
+          address.
+        </p>
+      </div>
+      <div class="top-actions">
+        <div id="geocoder" class="geocoder"></div>
+        <button id="clear-search" class="button-link" type="button">Clear search</button>
+        <div id="search-status" class="search-status"></div>
+        <div class="select-group">
+          <label for="landuse-filter">Land use</label>
+          <select id="landuse-filter">
+            <option value="all">All uses</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="map-panel">
+        <div id="map"></div>
+        <div id="legend" class="legend"></div>
+        <div id="hover-card" class="hover-card hidden"></div>
+      </section>
+      <aside class="details" id="details">
+        <div id="details-content">
+          <div class="details-empty">
+            <h3>Parcel details</h3>
+            <p>Click a parcel to see revenue per acre, assessed value, and use.</p>
+          </div>
+        </div>
+        <div class="stats-link" style="margin-top:1rem;">
+          <a class="button-link" href="stats.html">View all land use stats</a>
+        </div>
+      </aside>
+    </main>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.3/mapbox-gl-geocoder.min.js"></script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
