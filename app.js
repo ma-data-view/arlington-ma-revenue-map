@@ -22,6 +22,8 @@
   const landuseSelect = document.getElementById("landuse-filter");
   const searchStatus = document.getElementById("search-status");
   const clearSearchBtn = document.getElementById("clear-search");
+  const detailsToggle = document.getElementById("details-toggle");
+  const detailsContainer = document.getElementById("details-content");
 
   let colorStops = [];
   let searchMarker = null;
@@ -374,6 +376,13 @@
     landuseSelect.addEventListener("change", (e) => {
       applyLandUseFilter(e.target.value);
     });
+
+    if (detailsToggle && detailsContainer) {
+      detailsToggle.onclick = () => {
+        const expanded = detailsContainer.classList.toggle("expanded");
+        detailsToggle.textContent = expanded ? "Hide details ⌃" : "Show details ⌄";
+      };
+    }
   }
 
   init().catch((err) => {
